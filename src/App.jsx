@@ -5,7 +5,7 @@ import './App.css'
 import { Conster } from './componets/Conter'
 import { Header } from './componets/Header'
 import { CardImg } from './componets/Card'
-
+import { Sidebar } from './componets/Sidebar'
 
 
 
@@ -17,6 +17,7 @@ function App() {
 
 
       <Header />
+      <Sidebar/>
       <CardImg />
       <Conster />
 
