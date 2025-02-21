@@ -8,7 +8,7 @@ export function Sidebar() {
     <div>
       <Button variant="primary" onClick={() => setShow(true)}>Abrir Sidebar</Button>
 
-      <Offcanvas show={show} onHide={() => setShow(false)} placement="start" style={{ maxWidth: '300px' }}>
+      <Offcanvas show={show} onHide={() => setShow(false)} placement="start" style={{ maxWidth: '200px' }}>
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Menú Lateral</Offcanvas.Title>
         </Offcanvas.Header>
