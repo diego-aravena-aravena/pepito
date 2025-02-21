@@ -1,32 +1,40 @@
-import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
+import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap"; // Importamos componentes de Bootstrap
+import { SearchBar } from "./SearchBar"; // Importamos el componente del buscador
 
+// Componente Header: representa la barra de navegación
+export function Header() {
+  return (
+  
+    <Navbar expand="lg" className="bg-body-tertiary w-100"> {/* `w-100` para ocupar todo el ancho */}
+      <Container fluid> {/* `fluid` hace que el contenedor use todo el ancho disponible */}
 
+ 
+        {/* Logo o nombre de la aplicación */}
+        <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
 
-export function Header(){
-   
-  return(
-    <Navbar expand="lg" className="bg-body-tertiary">
-      <Container>
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Link</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
+        {/* Botón para desplegar el menú en dispositivos pequeños */}
+        <Navbar.Toggle aria-controls="navbarScroll" />
+
+        {/* Contenedor del menú de navegación */}
+        <Navbar.Collapse id="navbarScroll" className="d-flex justify-content-between">
+          <Nav className="me-auto my-2 my-lg-0" navbarScroll>
+            
+            {/* Enlaces de navegación */}
+            <Nav.Link href="#action1">Home</Nav.Link>
+            <Nav.Link href="#action2">Link</Nav.Link>
           </Nav>
+
+          {/* Se inserta el componente del buscador aquí */}
+       
+
+           {/* Contenedor para el buscador */}
+  <div className="w-100 mt-3"> {/* mt-3 añade margen arriba para separar */}
+    <SearchBar />
+  </div>
+
+
         </Navbar.Collapse>
       </Container>
     </Navbar>
-  )
+  );
 }
