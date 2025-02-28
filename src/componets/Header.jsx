@@ -1,40 +1,32 @@
-import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap"; // Importamos componentes de Bootstrap
+import { Navbar, Nav, Container } from "react-bootstrap"; // Importamos componentes de Bootstrap
 import { SearchBar } from "./SearchBar"; // Importamos el componente del buscador
+import { Link } from "react-router-dom";
 
-// Componente Header: representa la barra de navegación
 export function Header() {
   return (
-  
-    <Navbar expand="lg" className="bg-body-tertiary w-100"> {/* `w-100` para ocupar todo el ancho */}
-      <Container fluid> {/* `fluid` hace que el contenedor use todo el ancho disponible */}
-
- 
+    <Navbar expand="lg" className="bg-body-tertiary w-100">
+      <Container fluid>
         {/* Logo o nombre de la aplicación */}
-        <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/"></Navbar.Brand>
 
-        {/* Botón para desplegar el menú en dispositivos pequeños */}
+        {/* Botón para desplegar el menú en móviles */}
         <Navbar.Toggle aria-controls="navbarScroll" />
 
         {/* Contenedor del menú de navegación */}
-        <Navbar.Collapse id="navbarScroll" className="d-flex justify-content-between">
+        <Navbar.Collapse id="navbarScroll">
           <Nav className="me-auto my-2 my-lg-0" navbarScroll>
-            
-            {/* Enlaces de navegación */}
-            <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">Link</Nav.Link>
+          <Nav.Link as={Link} to="/">Inicio</Nav.Link>
+          <Nav.Link as={Link} to="/counter">Contador</Nav.Link>
           </Nav>
-
-          {/* Se inserta el componente del buscador aquí */}
-       
-
-           {/* Contenedor para el buscador */}
-  <div className="w-100 mt-3"> {/* mt-3 añade margen arriba para separar */}
-    <SearchBar />
-  </div>
-
-
         </Navbar.Collapse>
+
+        {/* Buscador siempre visible, fuera del Collapse */}
+        <div className="w-50">
+          <SearchBar />
+        </div>
       </Container>
     </Navbar>
   );
 }
+
+
